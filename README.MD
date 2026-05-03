@@ -1,6 +1,3 @@
-## 📄 README.md
-
-```markdown
 # 📚 Estrutura de Dados - Loiane (Java)
 
 Projeto desenvolvido com base nos estudos do curso de Estrutura de Dados da Loiane Groner, com foco na implementação prática dos principais conceitos utilizando Java.
@@ -11,85 +8,134 @@ Projeto desenvolvido com base nos estudos do curso de Estrutura de Dados da Loia
 
 Este repositório tem como objetivo reforçar o aprendizado em **Estrutura de Dados**, implementando algoritmos e estruturas fundamentais na prática, como:
 
-- Vetores (Arrays)
-- Listas
-- Pilhas
-- Filas
-- Algoritmos básicos
-- Exercícios práticos
+* Vetores (Arrays)
+* Listas
+* Pilhas
+* Filas
+* Algoritmos básicos
+* Exercícios práticos
 
 ---
 
 ## 🛠️ Tecnologias utilizadas
 
-- Java
-- IDE (IntelliJ / Eclipse / VS Code)
-- Git e GitHub
+* Java 17
+* Docker 🐳
+* Git e GitHub
 
 ---
 
 ## 📂 Estrutura do projeto
 
-O projeto está organizado em pacotes que representam diferentes estruturas de dados e desafios:
-
 ```
-
 src/
-└── com/
-└── loiane/
-└── estruturadados/
-├── vetor/
-├── lista/
-├── pilha/
-├── fila/
-└── desafios/
-
-````
+ └── com/
+     └── loiane/
+         └── estruturadados/
+             ├── vetor/
+             ├── lista/
+             ├── pilha/
+             ├── fila/
+             └── desafios/
+```
 
 ---
 
-## ▶️ Como executar
+## ▶️ Como executar (modo tradicional)
 
-1. Clone o repositório:
+1. Compile os arquivos:
+
 ```bash
-git clone https://github.com/abdieldeathayde/EstruturaDeDadosLoiane.git
-````
+javac -d bin $(find src -name "*.java")
+```
 
-2. Abra o projeto em sua IDE
+2. Execute uma classe com `main`:
 
-3. Execute a classe desejada com método `main`
+```bash
+java -cp bin com.loiane.estruturadados.vetor.SuaClasseMain
+```
+
+---
+
+## 🐳 Executando com Docker
+
+### 📌 Pré-requisitos
+
+* Docker instalado
+* Permissão para executar Docker (sem sudo ou usando sudo)
+
+---
+
+### 🔧 Build da imagem
+
+```bash
+docker build -t estrutura-dados .
+```
+
+---
+
+### ▶️ Executar o container (modo interativo)
+
+⚠️ Importante: como o projeto usa `Scanner`, é necessário rodar em modo interativo:
+
+```bash
+docker run -it estrutura-dados
+```
+
+---
+
+### 🧠 Executar passando argumentos (opcional)
+
+Se adaptar o código para usar `args`:
+
+```bash
+docker run estrutura-dados 10 20 30
+```
+
+---
+
+## 🐳 Dockerfile utilizado
+
+```dockerfile
+FROM eclipse-temurin:17-jdk-jammy
+
+WORKDIR /app
+
+COPY . .
+
+RUN mkdir -p bin
+RUN javac -d bin $(find src -name "*.java")
+
+CMD ["java", "-cp", "bin", "com.loiane.estruturadados.vetor.SuaClasseMain"]
+```
 
 ---
 
 ## 📖 Conteúdos abordados
 
-Este projeto cobre conceitos importantes como:
-
-* Complexidade de algoritmos
-* Estruturas lineares
+* Estruturas de dados lineares
+* Algoritmos básicos
 * Manipulação de dados em memória
-* Boas práticas em Java
+* Complexidade de algoritmos
 
 ---
 
 ## 🎯 Aprendizados
 
-Durante o desenvolvimento deste projeto, foram aprimoradas habilidades como:
-
 * Lógica de programação
 * Organização de código
-* Resolução de problemas
 * Estruturação de projetos Java
+* Introdução ao uso de Docker
 
 ---
 
 ## 🤝 Contribuição
 
-Sinta-se à vontade para contribuir com melhorias:
+Sinta-se à vontade para contribuir:
 
 1. Fork este repositório
 2. Crie uma branch (`git checkout -b feature/minha-feature`)
-3. Commit suas alterações (`git commit -m 'Minha melhoria'`)
+3. Commit (`git commit -m 'Minha melhoria'`)
 4. Push (`git push origin feature/minha-feature`)
 5. Abra um Pull Request
 
@@ -101,25 +147,9 @@ Sinta-se à vontade para contribuir com melhorias:
 Desenvolvedor Backend Java
 
 * GitHub: [https://github.com/abdieldeathayde](https://github.com/abdieldeathayde)
-* LinkedIn: (adicione aqui)
 
 ---
 
 ## 📄 Licença
 
-Este projeto é de uso educacional e livre para estudos.
-
----
-
-```
-
----
-
-## 💡 Dica extra (nível profissional)
-
-Um README é a primeira coisa que recrutadores e devs veem no projeto :contentReference[oaicite:1]{index=1} — então, se quiser se destacar ainda mais, você pode adicionar:
-
-- ✅ GIF do projeto rodando  
-- ✅ Badges (Java, Status, License)  
-- ✅ Prints do código organizado  
-- ✅ Link para outros projetos relacionados
+Projeto para fins educacionais.
