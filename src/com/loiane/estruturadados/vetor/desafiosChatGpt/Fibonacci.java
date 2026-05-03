@@ -5,15 +5,6 @@ import java.util.Scanner;
 
 public class Fibonacci {
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Digite um valor: ");
-        int valor = sc.nextInt();
-
-        calculaFibonacci(valor);
-    }
-
     public static void calculaFibonacci(int numero) {
         ArrayList<Integer> lista = new ArrayList<>();
 

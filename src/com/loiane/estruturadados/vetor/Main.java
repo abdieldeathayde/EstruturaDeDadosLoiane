@@ -1,9 +1,11 @@
-package com.loiane.estruturadados.vetor.desafiosChatGpt;
+package com.loiane.estruturadados.vetor;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Array {
+import static com.loiane.estruturadados.vetor.desafiosChatGpt.Fibonacci.calculaFibonacci;
+
+public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -42,5 +44,25 @@ public class Array {
         System.out.println("Lista de números: " + numeros);
 
         sc.close();
+
+        System.out.print("Digite um valor: ");
+        int valor = sc.nextInt();
+
+        calculaFibonacci(valor);
+
+
+
+        int numeroEhPrimo = sc.nextInt();
+
+        if (numeroEhPrimo == 2) {
+            System.out.println("Número: " + numeroEhPrimo + " é primo.");
+        }
+        else if (numeroEhPrimo % 2 != 0) {
+            System.out.println("Número: " + numeroEhPrimo + " é primo.");
+        } else {
+            System.out.println("Número: " + numeroEhPrimo + " é mão é primo.");
+        }
+
     }
+
 }
